@@ -38,8 +38,8 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar position="static" color="primary">
+      <Container maxWidth="xxl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -52,7 +52,7 @@ function ResponsiveAppBar() {
               fontFamily: "Caveat",
               fontWeight: 600,
               letterSpacing: ".27rem",
-              color: "inherit",
+              color: "text.secondary",
               textDecoration: "none",
             }}
           >
@@ -90,10 +90,11 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <Link
+                  key={page}
                   to={`/${page.toLowerCase()}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
                 </Link>
@@ -112,7 +113,7 @@ function ResponsiveAppBar() {
               fontFamily: "Caveat",
               fontWeight: 600,
               letterSpacing: ".27rem",
-              color: "inherit",
+              color: "text.secondary",
               textDecoration: "none",
             }}
           >
@@ -121,11 +122,11 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Link
+                key={page}
                 to={`/${page.toLowerCase()}`}
                 style={{ textDecoration: "none" }}
               >
                 <Button
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
@@ -158,14 +159,17 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Link
-                    to={`/${setting.toLowerCase()}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Typography textAlign="center">{setting}</Typography>
-                  </Link>
-                </MenuItem>
+                <Link
+                  key={setting}
+                  to={`/${setting.toLowerCase()}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center" color={"primary"}>
+                      {setting}
+                    </Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
