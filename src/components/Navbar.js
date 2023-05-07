@@ -15,7 +15,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
-const pages = ["Movies", "Series", "Books"];
+const pages = ["Movies", "TV Shows", "Books"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -91,7 +91,7 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <Link
                   key={page}
-                  to={`/${page.toLowerCase()}`}
+                  to={`/${page.replaceAll(" ", "-").toLowerCase()}`}
                   style={{ textDecoration: "none" }}
                 >
                   <MenuItem onClick={handleCloseNavMenu}>
@@ -123,7 +123,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Link
                 key={page}
-                to={`/${page.toLowerCase()}`}
+                to={`/${page.replaceAll(" ", "-").toLowerCase()}`}
                 style={{ textDecoration: "none" }}
               >
                 <Button
@@ -161,7 +161,7 @@ function ResponsiveAppBar() {
               {settings.map((setting) => (
                 <Link
                   key={setting}
-                  to={`/${setting.toLowerCase()}`}
+                  to={`/${setting.replaceAll(" ", "-").toLowerCase()}`}
                   style={{ textDecoration: "none" }}
                 >
                   <MenuItem onClick={handleCloseUserMenu}>
