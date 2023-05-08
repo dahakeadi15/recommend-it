@@ -18,7 +18,6 @@ export default function Movies() {
           // alignItems="center"
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
-          marginTop={2}
         >
           {data.movies.map((movie) => (
             <Grid

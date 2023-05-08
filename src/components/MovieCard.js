@@ -7,11 +7,11 @@ import { CardActionArea } from "@mui/material";
 
 export default function MovieCard(props) {
   return (
-    <Card sx={{ maxWidth: 345, bgcolor: "primary.main" }}>
+    <Card sx={{ maxWidth: 345, bgcolor: "primary.main", margin: "2.4rem" }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="200"
+          height="120"
           image={props.imgUrl}
           alt={props.title}
         />
@@ -24,7 +24,17 @@ export default function MovieCard(props) {
           >
             {props.title}
           </Typography>
-          <Typography variant="body2" color="text.primary">
+          <Typography
+            variant="body2"
+            color="text.primary"
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: "3",
+              WebkitBoxOrient: "vertical",
+            }}
+          >
             {props.description}
           </Typography>
         </CardContent>
